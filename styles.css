@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+}
+
+html { 
+    block-size: 100%; 
+}
+
+body { 
+    block-size: 100%; 
+    background-color: #F5F7FB;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#root{
+    min-block-size: 100%; 
+    display: grid;
+    position: relative;
+}
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+#site-header, #site-header-description{
+    margin: 0;    
+}
+
+#site-header{
+    margin-bottom: .25em;
+}
+
+#site-header-description{
+    margin-bottom: 2em;
+}
+
+/* header > button */
+.CTA-button{
+    padding: 1em 3em;
+    border-radius: 1em;
+    border: 0px none;
+    background-color: #4D5B9E;
+    color: #F5F7FB;
+}
+
+#start-yellow-blob, #Quest-yellow-blob{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#start-blue-blob, #Quest-blue-blob{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#Questions-and-controls-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 20%; 
+}
+
+main > .CTA-button{
+    align-self: center;
+}
+
+hr{
+    border: .8px solid #DBDEF0;
+}
+
+.answer-choices{
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.answer-choice-container, .answer-choice-container > input, .answer-choice-container > label{
+    display: inline;
+} 
+
+.answer-choice-container input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.answer-choice-container input[type="radio"]:checked + label {
+    background-color: #D6DBF5;
+    border: solid 1px #D6DBF5;
+}
+
+.answer-choice-container label{
+    display: inline-block;
+    border: solid 1px #4D5B9E;
+    padding: .33em 1.33em;
+    border-radius: 0.667em;
+}
+
+.correct-answer-choice {
+    background-color: #94D7A2;
+    border: solid 1px #94D7A2;
+}
+
+/* Typoraphy */
+
+.answer-choice-container label{
+    font-size: .875rem;
+    color: #293264;
+    font-weight: 500;
+}
+
+.question-group > p{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+body{
+    font-family: "Karla", sans-serif;
+}
+
+header > .CTA-button, main > .CTA-button{
+    font-family: "Karla", sans-serif;   
+    font-size: 1rem;
+}
+
+#site-header{
+    font-size: 2rem;
+}
+
+#site-header-description{
+    font-size: 1rem;
+}
