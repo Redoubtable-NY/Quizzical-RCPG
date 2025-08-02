@@ -10,6 +10,10 @@ function App() {
   const [quizQuestions, setQuizQuestions] = useState([])
   const [isAnswersChecked, setIsAnswersChecked] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [selectedAnswer2, setSelectedAnswer2] = useState('')
+  const [selectedAnswer3, setSelectedAnswer3] = useState('')
+  const [selectedAnswer4, setSelectedAnswer4] = useState('')
+  const [selectedAnswer5, setSelectedAnswer5] = useState('')
   const [quizRandomizedAnswers, setQuizRandomizedAnswers] = useState([])
 
   useEffect(() => {
@@ -18,9 +22,9 @@ function App() {
       .then((data) => {
         const quizQuestionsAndAnswers = data.results
         const quizQuestionResponses = quizQuestionsAndAnswers.map((arrayItem) => he.decode(arrayItem.question))
-        const quizAnswerKey = quizQuestionsAndAnswers.map(arrayItem => arrayItem.correct_answer)
+        const quizAnswerKey = quizQuestionsAndAnswers.map(arrayItem => he.decode(arrayItem.correct_answer))
         const quizAnswerChoices = quizQuestionsAndAnswers.map((arrayItem, index) => {
-                return arrayItem.incorrect_answers.concat(quizAnswerKey[index])
+                return arrayItem.incorrect_answers.concat(he.decode(quizAnswerKey[index]))
             }
         )
         setQuizQuestions(quizQuestionResponses)
@@ -49,6 +53,22 @@ function App() {
     setSelectedAnswer(e.target.value)
   }
 
+  function selectAnswerChoice2(e){
+    setSelectedAnswer2(e.target.value)
+  }
+
+  function selectAnswerChoice3(e){
+    setSelectedAnswer3(e.target.value)
+  }
+
+  function selectAnswerChoice4(e){
+    setSelectedAnswer4(e.target.value)
+  }
+
+  function selectAnswerChoice5(e){
+    setSelectedAnswer5(e.target.value)
+  }
+
   // function startNewRound(){
   //   setNewRound(true)
   // }
@@ -61,7 +81,15 @@ function App() {
             isAnswersChecked={isAnswersChecked} 
             handleCheckClick={answerChecker}
             selectedAnswer={selectedAnswer}
+            selectedAnswer2={selectedAnswer2}
+            selectedAnswer3={selectedAnswer3}
+            selectedAnswer4={selectedAnswer4}
+            selectedAnswer5={selectedAnswer5}
             handleAnswerChoiceClick={selectAnswerChoice}
+            handleAnswerChoiceClick2={selectAnswerChoice2}
+            handleAnswerChoiceClick3={selectAnswerChoice3}
+            handleAnswerChoiceClick4={selectAnswerChoice4}
+            handleAnswerChoiceClick5={selectAnswerChoice5}
             setQuizRandomizedAnswers={setQuizRandomizedAnswers}
             quizRandomizedAnswers={quizRandomizedAnswers}
             quizQuestions={quizQuestions}
