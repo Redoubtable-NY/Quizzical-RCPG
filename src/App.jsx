@@ -16,23 +16,22 @@ function App() {
     fetch("https://opentdb.com/api.php?amount=5")
       .then(resp => resp.json())
       .then((data) => {
-        console.log(data.results)
         const quizQuestionsAndAnswers = data.results
         const quizQuestionResponses = quizQuestionsAndAnswers.map((arrayItem) => he.decode(arrayItem.question))
-        console.log(quizQuestionResponses)
         const quizAnswerKey = quizQuestionsAndAnswers.map(arrayItem => arrayItem.correct_answer)
         const quizAnswerChoices = quizQuestionsAndAnswers.map((arrayItem, index) => {
                 return arrayItem.incorrect_answers.concat(quizAnswerKey[index])
             }
         )
         setQuizQuestions(quizQuestionResponses)
-        console.log(quizAnswerChoices)
+
         for(const answerChoice of quizAnswerChoices){
             for(let i = answerChoice.length - 1; i >= 1; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [answerChoice[i], answerChoice[j]] = [answerChoice[j], answerChoice[i]];
             }
         }
+
         setQuizRandomizedAnswers(quizAnswerChoices)
       }
     )
