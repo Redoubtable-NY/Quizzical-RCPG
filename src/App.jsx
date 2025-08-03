@@ -9,11 +9,11 @@ function App() {
   const [newRound, setNewRound] = useState(false)
   const [quizQuestions, setQuizQuestions] = useState([])
   const [isAnswersChecked, setIsAnswersChecked] = useState(false)
-  const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [selectedAnswer0, setSelectedAnswer0] = useState('')
+  const [selectedAnswer1, setSelectedAnswer1] = useState('')
   const [selectedAnswer2, setSelectedAnswer2] = useState('')
   const [selectedAnswer3, setSelectedAnswer3] = useState('')
   const [selectedAnswer4, setSelectedAnswer4] = useState('')
-  const [selectedAnswer5, setSelectedAnswer5] = useState('')
   const [quizRandomizedAnswers, setQuizRandomizedAnswers] = useState([])
 
   useEffect(() => {
@@ -55,8 +55,12 @@ function App() {
     setIsAnswersChecked(true)
   }
 
-  function selectAnswerChoice(e){
-    setSelectedAnswer(e.target.value)
+  function selectAnswerChoice0(e){
+    setSelectedAnswer0(e.target.value)
+  }
+
+  function selectAnswerChoice1(e){
+    setSelectedAnswer1(e.target.value)
   }
 
   function selectAnswerChoice2(e){
@@ -71,10 +75,6 @@ function App() {
     setSelectedAnswer4(e.target.value)
   }
 
-  function selectAnswerChoice5(e){
-    setSelectedAnswer5(e.target.value)
-  }
-
   // function startNewRound(){
   //   setNewRound(true)
   // }
@@ -86,16 +86,16 @@ function App() {
       (<QuestionsView 
             isAnswersChecked={isAnswersChecked} 
             handleCheckClick={answerChecker}
-            selectedAnswer={selectedAnswer}
+            selectedAnswer0={selectedAnswer0}
+            selectedAnswer1={selectedAnswer1}
             selectedAnswer2={selectedAnswer2}
             selectedAnswer3={selectedAnswer3}
             selectedAnswer4={selectedAnswer4}
-            selectedAnswer5={selectedAnswer5}
-            handleAnswerChoiceClick={selectAnswerChoice}
+            handleAnswerChoiceClick0={selectAnswerChoice0}
+            handleAnswerChoiceClick1={selectAnswerChoice1}
             handleAnswerChoiceClick2={selectAnswerChoice2}
             handleAnswerChoiceClick3={selectAnswerChoice3}
             handleAnswerChoiceClick4={selectAnswerChoice4}
-            handleAnswerChoiceClick5={selectAnswerChoice5}
             setQuizRandomizedAnswers={setQuizRandomizedAnswers}
             quizRandomizedAnswers={quizRandomizedAnswers}
             quizQuestions={quizQuestions}
