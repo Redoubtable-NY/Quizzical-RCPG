@@ -36,6 +36,12 @@ function App() {
             }
         }
 
+        // Instead of mapping each question one by one, how can we loop over them collectively, to reduce code, and keep things 
+        // dry? Also don't forget that you can use the index value and template strings to incorporate the correct State variable 
+        // and updating function for each input. You are really close to being done and moving on to the next lesson. I think cracking
+        // this will be beneficial for future lessons which is why. I'm mentioning it, it will also be easier for you to wrap your 
+        // head around your code base for now.
+
         setQuizRandomizedAnswers(quizAnswerChoices)
       }
     )
