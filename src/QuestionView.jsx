@@ -4,9 +4,24 @@ import { nanoid } from 'nanoid'
 import { clsx } from 'clsx'
 
 export default function QuestionsView(props){
-
+    let wrongAnswerCount = 0
+    
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
         return(answerCollection.map((answerChoice, answerIndex) => {
+                // const isCorrect = props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
+                const isCorrect = props.triviaAnswerKey.includes(answerChoice)
+                const selectedAnswerChoice = props[`selectedAnswer${answerSetIndex}`] === answerChoice
+                const notSelected = !selectedAnswerChoice
+                const isIncorrect = !props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
+                if(selectedAnswerChoice & isIncorrect){
+                    wrongAnswerCount = ++wrongAnswerCount
+                }
+                // console.log(wrongAnswerCount)
+                // You tried to ham fist it, and fell on your face. We need a way to surface the player
+                // score after selections have been made. 
+                //  if(isIncorrect){
+                //     props.setPlayerScore((prevPlayerScore) => {return prevPlayerScore - 1})
+                // }
                     return(
                         <div key={nanoid()} className='answer-choice-container'>
                                 <input key={nanoid()}
@@ -17,15 +32,26 @@ export default function QuestionsView(props){
                                     checked={props[`selectedAnswer${answerSetIndex}`] === `${answerChoice}`} 
                                     onChange={props[`handleAnswerChoiceClick${answerSetIndex}`]}
                                 />
-                                <label key={nanoid()} htmlFor={`answer-${answerSetIndex}-choice: ${answerIndex}`}
+                                <label 
+                                    key={nanoid()}  
+                                    className={clsx({
+                                        'selected': selectedAnswerChoice,
+                                        'not-selected': (notSelected && props.isAnswersChecked),
+                                        'correct-answer-choice': (isCorrect && props.isAnswersChecked),
+                                        'incorrect-answer-choice': (isIncorrect && props.isAnswersChecked && selectedAnswerChoice)
+                                        }                                        
+                                    )}
+                                    htmlFor={`answer-${answerSetIndex}-choice: ${answerIndex}` }
                                 >{answerChoice}
                                 </label>
                         </div>
                     )
                 }
             )
-        ) 
+        )
     })
+
+    console.log(wrongAnswerCount)
 
     return(
         <>
@@ -66,7 +92,13 @@ export default function QuestionsView(props){
                     </form>
                     <hr/>
                 </section>
-                <button className='CTA-button' onClick={props.handleCheckClick}>Check answers</button>
+                {props.isAnswersChecked ? 
+                    <div className='new-game-container'>
+                        <p>{`You scored ${props.playerScore}/5 correct answers`}</p>
+                        <button className='CTA-button' onClick={props.playAgain}>Play again</button>
+                    </div> : 
+                    <button className='CTA-button' onClick={() => props.handleCheckClick(wrongAnswerCount)}>Check answers</button>}
+                    
             </main>
             <img id="Quest-blue-blob" src={QuestBlueBlob} alt='decorative image'/>
         </>

@@ -7,7 +7,9 @@ import he from "he"
 function App() {
   const [quizStart, setQuizStart] = useState(true)
   const [newRound, setNewRound] = useState(false)
+  const [playerScore, setPlayerScore] = useState(5)
   const [quizQuestions, setQuizQuestions] = useState([])
+  const [triviaAnswerKey, setTriviaAnswerKey] = useState([])
   const [isAnswersChecked, setIsAnswersChecked] = useState(false)
   const [selectedAnswer0, setSelectedAnswer0] = useState('')
   const [selectedAnswer1, setSelectedAnswer1] = useState('')
@@ -28,6 +30,7 @@ function App() {
             }
         )
         setQuizQuestions(quizQuestionResponses)
+        setTriviaAnswerKey(quizAnswerKey)
 
         for(const answerChoice of quizAnswerChoices){
             for(let i = answerChoice.length - 1; i >= 1; i--) {
@@ -44,8 +47,18 @@ function App() {
     quizStart && setQuizStart(false)
   }
 
-  function answerChecker(){
+  function answerChecker(value){
     setIsAnswersChecked(true)
+    console.log("answers checked")
+    console.log(`You answered ${value} questions incorrectly`)
+    setPlayerScore((prevPlayerScore) => {
+      if(prevPlayerScore >= value){
+        return (prevPlayerScore - value)
+      }else{
+        return(prevPlayerScore)
+      }
+    })
+    console.log(`The player's score is: ${playerScore}`)
   }
 
   function selectAnswerChoice0(e){
@@ -66,6 +79,11 @@ function App() {
 
   function selectAnswerChoice4(e){
     setSelectedAnswer4(e.target.value)
+  }
+
+  function playAgain() {
+    setIsAnswersChecked(false)
+    setNewRound(true)
   }
 
   // function startNewRound(){
@@ -92,6 +110,10 @@ function App() {
             setQuizRandomizedAnswers={setQuizRandomizedAnswers}
             quizRandomizedAnswers={quizRandomizedAnswers}
             quizQuestions={quizQuestions}
+            triviaAnswerKey={triviaAnswerKey}
+            playerScore={playerScore}
+            setPlayerScore={setPlayerScore}
+            handlePlayAgainClick={playAgain}
         />
         ) 
       }

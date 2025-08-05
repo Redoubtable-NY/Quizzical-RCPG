@@ -91,9 +91,19 @@ hr{
     width: 0;
 }
 
-.answer-choice-container input[type="radio"]:checked + label {
+/* .answer-choice-container input[type="radio"]:checked + label {
     background-color: #D6DBF5;
     border: solid 1px #D6DBF5;
+} */
+
+
+.selected{
+    background-color: #D6DBF5;
+    border: solid 1px #D6DBF5;
+}
+
+.not-selected{
+    opacity: 50%;
 }
 
 .answer-choice-container label{
@@ -106,6 +116,28 @@ hr{
 .correct-answer-choice {
     background-color: #94D7A2;
     border: solid 1px #94D7A2;
+    opacity: 100%;
+}
+
+.incorrect-answer-choice{
+    background-color: #F8BCBC;
+    border: solid 1px #F8BCBC;
+    opacity: 50%;
+}
+/* input[class="correct-answer-choice"]{
+    background-color: #94D7A2;
+    border: solid 1px #94D7A2;
+} */
+
+.new-game-container{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.new-game-container p{
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 /* Typoraphy */
@@ -125,7 +157,7 @@ body{
     font-family: "Karla", sans-serif;
 }
 
-header > .CTA-button, main > .CTA-button{
+header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     font-family: "Karla", sans-serif;   
     font-size: 1rem;
 }
