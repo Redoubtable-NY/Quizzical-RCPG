@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 import { clsx } from 'clsx'
 
 export default function QuestionsView(props){
+    console.log(`New Rounds value is: ${props.currentRound}`)
     let wrongAnswerCount = 0
     
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
@@ -51,8 +52,6 @@ export default function QuestionsView(props){
         )
     })
 
-    console.log(wrongAnswerCount)
-
     return(
         <>
             <img id="Quest-yellow-blob" src={QuestYellowBlob} alt='decorative image'/>
@@ -95,7 +94,7 @@ export default function QuestionsView(props){
                 {props.isAnswersChecked ? 
                     <div className='new-game-container'>
                         <p>{`You scored ${props.playerScore}/5 correct answers`}</p>
-                        <button className='CTA-button' onClick={props.playAgain}>Play again</button>
+                        <button className='CTA-button' onClick={props.handlePlayAgainClick}>Play again</button>
                     </div> : 
                     <button className='CTA-button' onClick={() => props.handleCheckClick(wrongAnswerCount)}>Check answers</button>}
                     

@@ -6,7 +6,7 @@ import he from "he"
 
 function App() {
   const [quizStart, setQuizStart] = useState(true)
-  const [newRound, setNewRound] = useState(false)
+  const [currentRound, setCurrentRound] = useState(1)
   const [playerScore, setPlayerScore] = useState(5)
   const [quizQuestions, setQuizQuestions] = useState([])
   const [triviaAnswerKey, setTriviaAnswerKey] = useState([])
@@ -41,7 +41,7 @@ function App() {
         setQuizRandomizedAnswers(quizAnswerChoices)
       }
     )
-  },[ ])
+  },[currentRound])
 
   function startGame(){
     quizStart && setQuizStart(false)
@@ -49,8 +49,6 @@ function App() {
 
   function answerChecker(value){
     setIsAnswersChecked(true)
-    console.log("answers checked")
-    console.log(`You answered ${value} questions incorrectly`)
     setPlayerScore((prevPlayerScore) => {
       if(prevPlayerScore >= value){
         return (prevPlayerScore - value)
@@ -83,7 +81,12 @@ function App() {
 
   function playAgain() {
     setIsAnswersChecked(false)
-    setNewRound(true)
+    setCurrentRound(prevNewRound => prevNewRound + 1)
+    setSelectedAnswer0('')
+    setSelectedAnswer1('')
+    setSelectedAnswer2('')
+    setSelectedAnswer3('')
+    setSelectedAnswer4('')
   }
 
   // function startNewRound(){
@@ -114,6 +117,7 @@ function App() {
             playerScore={playerScore}
             setPlayerScore={setPlayerScore}
             handlePlayAgainClick={playAgain}
+            currentRound={currentRound}
         />
         ) 
       }
