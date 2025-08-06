@@ -79,7 +79,6 @@ main > .CTA-button{
 .trivia-questions{
     display: flex;
     flex-direction: column;
-    /* flex-grow: 1; */
     padding-bottom: 1.25em;
 }
 
@@ -147,10 +146,6 @@ hr{
     border: solid 1px #F8BCBC;
     opacity: 50%;
 }
-/* input[class="correct-answer-choice"]{
-    background-color: #94D7A2;
-    border: solid 1px #94D7A2;
-} */
 
 .new-game-container{
     display: flex;
@@ -170,11 +165,6 @@ hr{
     color: #293264;
     font-weight: 500;
 }
-
-/* .question-group > p{
-    font-size: 1.25rem;
-    font-weight: 700;
-} */
 
 .question-group > fieldset > legend {
     font-weight: 700;
