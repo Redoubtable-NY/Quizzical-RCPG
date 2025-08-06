@@ -9,7 +9,6 @@ export default function QuestionsView(props){
     
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
         return(answerCollection.map((answerChoice, answerIndex) => {
-                // const isCorrect = props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
                 const isCorrect = props.triviaAnswerKey.includes(answerChoice)
                 const selectedAnswerChoice = props[`selectedAnswer${answerSetIndex}`] === answerChoice
                 const notSelected = !selectedAnswerChoice
@@ -17,12 +16,6 @@ export default function QuestionsView(props){
                 if(selectedAnswerChoice & isIncorrect){
                     wrongAnswerCount = ++wrongAnswerCount
                 }
-                // console.log(wrongAnswerCount)
-                // You tried to ham fist it, and fell on your face. We need a way to surface the player
-                // score after selections have been made. 
-                //  if(isIncorrect){
-                //     props.setPlayerScore((prevPlayerScore) => {return prevPlayerScore - 1})
-                // }
                     return(
                         <div key={nanoid()} className='answer-choice-container'>
                                 <input key={nanoid()}
