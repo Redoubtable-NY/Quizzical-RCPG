@@ -5,15 +5,17 @@ import { clsx } from 'clsx'
 
 export default function QuestionsView(props){
     console.log(`New Rounds value is: ${props.currentRound}`)
+    console.log(props)
     let wrongAnswerCount = 0
     
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
         return(answerCollection.map((answerChoice, answerIndex) => {
-                const isCorrect = props.triviaAnswerKey.includes(answerChoice)
+                // const isCorrect = props.triviaAnswerKey.includes(answerChoice)
+                const isCorrect = props.triviaAnswerKey[answerSetIndex] === props[`selectedAnswer${answerSetIndex}`]
                 const selectedAnswerChoice = props[`selectedAnswer${answerSetIndex}`] === answerChoice
                 const notSelected = !selectedAnswerChoice
                 const isIncorrect = !props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
-                if(selectedAnswerChoice & isIncorrect){
+                if(selectedAnswerChoice & isIncorrect ){
                     wrongAnswerCount = ++wrongAnswerCount
                 }
                     return(
@@ -31,7 +33,7 @@ export default function QuestionsView(props){
                                     className={clsx({
                                         'selected': selectedAnswerChoice,
                                         'not-selected': (notSelected && props.isAnswersChecked),
-                                        'correct-answer-choice': (isCorrect && props.isAnswersChecked),
+                                        'correct-answer-choice': (isCorrect && props.isAnswersChecked && selectedAnswerChoice),
                                         'incorrect-answer-choice': (isIncorrect && props.isAnswersChecked && selectedAnswerChoice)
                                         }                                        
                                     )}
@@ -44,6 +46,8 @@ export default function QuestionsView(props){
             )
         )
     })
+
+    console.log(wrongAnswerCount)
 
     return(
         <>

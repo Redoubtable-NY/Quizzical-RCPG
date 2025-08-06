@@ -43,6 +43,7 @@ function App() {
         console.log(quizAnswerChoices)
         setQuizQuestions(quizQuestionResponses)
         setTriviaAnswerKey(quizAnswerKey)
+        console.log(quizAnswerKey)
 
         for(const answerChoice of quizAnswerChoices){
             for(let i = answerChoice.length - 1; i >= 1; i--) {
@@ -94,6 +95,7 @@ function App() {
   function playAgain() {
     setIsAnswersChecked(false)
     setCurrentRound(prevNewRound => prevNewRound + 1)
+    setPlayerScore(5)
     setSelectedAnswer0('')
     setSelectedAnswer1('')
     setSelectedAnswer2('')
