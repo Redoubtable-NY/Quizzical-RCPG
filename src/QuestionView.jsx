@@ -11,7 +11,8 @@ export default function QuestionsView(props){
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
         return(answerCollection.map((answerChoice, answerIndex) => {
                 // const isCorrect = props.triviaAnswerKey.includes(answerChoice)
-                const isCorrect = props.triviaAnswerKey[answerSetIndex] === props[`selectedAnswer${answerSetIndex}`]
+                // const isCorrect = props.triviaAnswerKey[answerSetIndex] === props[`selectedAnswer${answerSetIndex}`]
+                const isCorrect = props.triviaAnswerKey[answerSetIndex] === answerChoice
                 const selectedAnswerChoice = props[`selectedAnswer${answerSetIndex}`] === answerChoice
                 const notSelected = !selectedAnswerChoice
                 const isIncorrect = !props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
@@ -33,7 +34,8 @@ export default function QuestionsView(props){
                                     className={clsx({
                                         'selected': selectedAnswerChoice,
                                         'not-selected': (notSelected && props.isAnswersChecked),
-                                        'correct-answer-choice': (isCorrect && props.isAnswersChecked && selectedAnswerChoice),
+                                        // 'correct-answer-choice': (isCorrect && props.isAnswersChecked && selectedAnswerChoice),
+                                        'correct-answer-choice': (isCorrect && props.isAnswersChecked),
                                         'incorrect-answer-choice': (isIncorrect && props.isAnswersChecked && selectedAnswerChoice)
                                         }                                        
                                     )}
