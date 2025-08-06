@@ -23,12 +23,24 @@ function App() {
       .then(resp => resp.json())
       .then((data) => {
         const quizQuestionsAndAnswers = data.results
+        const quizIncorrectAnswers = quizQuestionsAndAnswers.map((arrayItem) => 
+          {return(arrayItem.incorrect_answers.map((incorrectChoice) => {return(he.decode(incorrectChoice))
+              })
+            )
+          }
+        )
         const quizQuestionResponses = quizQuestionsAndAnswers.map((arrayItem) => he.decode(arrayItem.question))
         const quizAnswerKey = quizQuestionsAndAnswers.map(arrayItem => he.decode(arrayItem.correct_answer))
-        const quizAnswerChoices = quizQuestionsAndAnswers.map((arrayItem, index) => {
-                return arrayItem.incorrect_answers.concat(he.decode(quizAnswerKey[index]))
+        const quizAnswerChoices = quizIncorrectAnswers.map((arrayItem, index) => {
+                return arrayItem.concat(he.decode(quizAnswerKey[index]))
             }
         )
+        // const quizAnswerChoices = quizQuestionsAndAnswers.map((arrayItem, index) => {
+        //         return arrayItem.incorrect_answers.concat(he.decode(quizAnswerKey[index]))
+        //     }
+        // )
+        console.log(quizQuestionsAndAnswers)
+        console.log(quizAnswerChoices)
         setQuizQuestions(quizQuestionResponses)
         setTriviaAnswerKey(quizAnswerKey)
 
@@ -88,7 +100,7 @@ function App() {
     setSelectedAnswer3('')
     setSelectedAnswer4('')
   }
-  
+
   return (
     <>
      {quizStart ? 
