@@ -88,11 +88,7 @@ function App() {
     setSelectedAnswer3('')
     setSelectedAnswer4('')
   }
-
-  // function startNewRound(){
-  //   setNewRound(true)
-  // }
-
+  
   return (
     <>
      {quizStart ? 
