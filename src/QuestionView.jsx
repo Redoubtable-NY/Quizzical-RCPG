@@ -56,7 +56,7 @@ export default function QuestionsView(props){
         <>
             <img id="Quest-yellow-blob" src={QuestYellowBlob} alt='decorative image'/>
             <main id='Questions-and-controls-container'>
-                <section className='quiz-question'>
+                <section className='trivia-questions'>
                     <form className='question-group'>
                         <fieldset>
                             <legend>{props.quizQuestions[0]}</legend>
