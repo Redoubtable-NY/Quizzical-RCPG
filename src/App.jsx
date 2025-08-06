@@ -35,15 +35,8 @@ function App() {
                 return arrayItem.concat(he.decode(quizAnswerKey[index]))
             }
         )
-        // const quizAnswerChoices = quizQuestionsAndAnswers.map((arrayItem, index) => {
-        //         return arrayItem.incorrect_answers.concat(he.decode(quizAnswerKey[index]))
-        //     }
-        // )
-        console.log(quizQuestionsAndAnswers)
-        console.log(quizAnswerChoices)
         setQuizQuestions(quizQuestionResponses)
         setTriviaAnswerKey(quizAnswerKey)
-        console.log(quizAnswerKey)
 
         for(const answerChoice of quizAnswerChoices){
             for(let i = answerChoice.length - 1; i >= 1; i--) {
@@ -69,7 +62,6 @@ function App() {
         return(prevPlayerScore)
       }
     })
-    console.log(`The player's score is: ${playerScore}`)
   }
 
   function selectAnswerChoice0(e){
