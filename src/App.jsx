@@ -62,10 +62,8 @@ function App() {
     }
   }
 
-  function answerChecker(value, unSelectedAnswers, totalAnswerLength){
-    if(unSelectedAnswers === totalAnswerLength){
-
-    }else if(unSelectedAnswers === (totalAnswerLength - 5)){
+  function answerChecker(value, selectedAnswersCount){
+    if(selectedAnswersCount === 5){
       setIsAnswersChecked(true)
       setPlayerScore((prevPlayerScore) => {
         if(prevPlayerScore >= value){
