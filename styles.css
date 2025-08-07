@@ -69,7 +69,7 @@ header{
     justify-content: center;
     padding: 5% 20%; 
     max-width: 1800px;
-    min-width: 400px;
+    min-width: 1000px;
 }
 
 main > .CTA-button{
@@ -192,27 +192,32 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@Media (300px <= width <= 400px){
+@Media (300px <= width <= 1000px){
     
     /* Layout */
 
+    #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
+        display: none;
+    }
+
     #root{
         min-width: 300px;
-        max-width: 372px;
+        max-width: 1000px;
         padding: 0;
         margin: 0;
     }
 
     #Questions-and-controls-container{
         min-width: 300px;
-        max-width: 372px;
+        max-width: 1000px;
         padding: 2.75% 2.75%; 
         margin: 0;
+        align-self: center;
     }
     
     .trivia-questions{
         min-width: 300px;
-        max-width: 372px;
+        max-width: 1000px;
         padding-bottom: .875em;
     }
 
@@ -222,7 +227,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     }
 
     .question-group fieldset{
-        max-width: 372px;
+        max-width: 1000px;
         min-width: 300px;
     }
 
