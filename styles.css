@@ -212,8 +212,9 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         padding: 2.75% 2.75%; 
         margin: 0;
         align-self: center;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 100vh;
+        height: auto;
     }
     
     .trivia-questions{
