@@ -84,8 +84,8 @@ main > .CTA-button{
 .question-group{
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    justify-content: center;
+    /* flex-grow: 1;
+    justify-content: center; */
     gap: 1.25em;
 }
 
@@ -212,9 +212,8 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         padding: 2.75% 2.75%; 
         margin: 0;
         align-self: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        height: auto;
+        /* justify-content: center;
+        min-height: 100vh; */
     }
     
     .trivia-questions{
@@ -229,8 +228,8 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         gap: .875em;
         width: 100%;
         flex-shrink: 0;
-        flex-grow: 0;
         justify-content: flex-start;
+        flex-grow: 0;
     }
 
     .question-group fieldset{
