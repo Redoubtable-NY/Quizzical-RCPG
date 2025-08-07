@@ -192,7 +192,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@Media (300px <= width <= 1000px){
+@Media (width <= 1000px){
     
     /* Layout */
 
