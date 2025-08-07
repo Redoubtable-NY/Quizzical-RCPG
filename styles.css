@@ -90,14 +90,14 @@ main > .CTA-button{
     gap: 1.25em;
 }
 
-.question-group > fieldset{
+.question-group fieldset{
     border: none;
     border-bottom: 1px solid #DBDEF0;
     margin: none;
     padding: none;
 }
 
-.question-group > fieldset > legend {
+.question-group fieldset legend {
    padding-bottom: 1.5em;
 }
 
@@ -168,7 +168,7 @@ hr{
     font-weight: 500;
 }
 
-.question-group > fieldset > legend {
+.question-group fieldset legend {
     font-weight: 700;
     font-size: 1.25rem;
     color: #293264;
@@ -242,7 +242,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         margin-bottom: .25em;
     }
 
-    .question-group > fieldset > legend {
+    .question-group fieldset legend {
         padding-bottom: .5em;
      }
 
@@ -261,7 +261,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
     /* Typography */
 
-    .question-group > fieldset > legend {
+    .question-group fieldset  legend {
         font-weight: 700;
         font-size: .9rem;
         color: #293264;
