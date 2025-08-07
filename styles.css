@@ -223,6 +223,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
     .question-group{
         flex-wrap: wrap;
+        gap: .875em;
         width: 100%;
     }
 
