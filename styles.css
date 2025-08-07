@@ -69,7 +69,7 @@ header{
     justify-content: center;
     padding: 5% 20%; 
     max-width: 1800px;
-    min-width: 372px;
+    min-width: 400px;
 }
 
 main > .CTA-button{
@@ -187,4 +187,93 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 #site-header-description{
     font-size: 1rem;
+}
+
+
+/* mobile phone styles */
+
+@Media (300px <= width <= 400px){
+    
+    /* Layout */
+
+    #root{
+        min-width: 300px;
+        max-width: 372px;
+        padding: 0;
+        margin: 0;
+    }
+
+    #Questions-and-controls-container{
+        min-width: 300px;
+        max-width: 372px;
+        padding: 2.75% 2.75%; 
+        margin: 0;
+    }
+    
+    .trivia-questions{
+        min-width: 300px;
+        max-width: 372px;
+        padding-bottom: .875em;
+    }
+
+    .question-group{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .question-group fieldset{
+        max-width: 372px;
+        min-width: 300px;
+    }
+
+    .answer-choices{
+        flex-wrap: wrap;
+    }
+
+    .answer-choices{
+        gap: .5em;
+        margin-bottom: .25em;
+    }
+
+    .question-group > fieldset > legend {
+        padding-bottom: .5em;
+     }
+
+     .CTA-button{
+        padding: .75em 1.5em;
+        border-radius: 1em;
+        border: 0px none;
+        background-color: #4D5B9E;
+        color: #F5F7FB;
+    }
+
+    .new-game-container > .CTA-button{
+        padding: .75em .75em;
+    }
+
+
+    /* Typography */
+
+    .question-group > fieldset > legend {
+        font-weight: 700;
+        font-size: .9rem;
+        color: #293264;
+    }
+
+    .answer-choice-container label{
+        font-size: .7rem;
+        color: #293264;
+        font-weight: 500;
+    }
+
+    header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
+        font-family: "Karla", sans-serif;   
+        font-size: .875rem;
+    }
+
+    .new-game-container p{
+        font-weight: 700;
+        font-size: .9rem;
+    }
+
 }
