@@ -212,18 +212,23 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         padding: 2.75% 2.75%; 
         margin: 0;
         align-self: center;
+        justify-content: center;
+        min-height: 100vh;
     }
     
     .trivia-questions{
         min-width: 300px;
         max-width: 1000px;
         padding-bottom: .875em;
+        flex-shrink: 0;
     }
 
     .question-group{
         flex-wrap: wrap;
         gap: .875em;
         width: 100%;
+        justify-content: flex-start;
+        flex-shrink: 0;
     }
 
     .question-group fieldset{
