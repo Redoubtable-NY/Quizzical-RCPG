@@ -5,15 +5,22 @@ import { clsx } from 'clsx'
 
 export default function QuestionsView(props){
     let wrongAnswerCount = 0
+    let notSelectedCount = 0
+    let answerCollectionLength = 0
     
     const quizAnswerCollections = props.quizRandomizedAnswers.map((answerCollection, answerSetIndex) => {
         return(answerCollection.map((answerChoice, answerIndex) => {
                 const isCorrect = props.triviaAnswerKey[answerSetIndex] === answerChoice
                 const selectedAnswerChoice = props[`selectedAnswer${answerSetIndex}`] === answerChoice
+                // const answerCollectionLength = answerCollection.length
                 const notSelected = !selectedAnswerChoice
                 const isIncorrect = !props.triviaAnswerKey.includes(props[`selectedAnswer${answerSetIndex}`])
+                answerCollectionLength = ++answerCollectionLength
                 if(selectedAnswerChoice & isIncorrect ){
                     wrongAnswerCount = ++wrongAnswerCount
+                }
+                if(notSelected){
+                    notSelectedCount = ++notSelectedCount
                 }
                     return(
                         <div key={nanoid()} className='answer-choice-container'>
@@ -43,6 +50,9 @@ export default function QuestionsView(props){
             )
         )
     })
+
+    console.log(`the not selected count = ${notSelectedCount}`)
+    console.log(`the total list of possible choices = ${answerCollectionLength}`)
 
     return(
         <>
@@ -88,7 +98,7 @@ export default function QuestionsView(props){
                         <p>{`You scored ${props.playerScore}/5 correct answers`}</p>
                         <button className='CTA-button' onClick={props.handlePlayAgainClick}>Play again</button>
                     </div> : 
-                    <button className='CTA-button' onClick={() => props.handleCheckClick(wrongAnswerCount)}>Check answers</button>}
+                    <button className='CTA-button' onClick={() => props.handleCheckClick(wrongAnswerCount, notSelectedCount, answerCollectionLength)}>Check answers</button>}
                     
             </main>
             <img id="Quest-blue-blob" src={QuestBlueBlob} alt='decorative image'/>

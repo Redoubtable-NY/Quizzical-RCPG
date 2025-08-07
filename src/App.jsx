@@ -6,6 +6,7 @@ import he from "he"
 
 function App() {
   const [quizStart, setQuizStart] = useState(true)
+  const [fetchError, setFetchError] = useState(false)
   const [currentRound, setCurrentRound] = useState(1)
   const [playerScore, setPlayerScore] = useState(5)
   const [quizQuestions, setQuizQuestions] = useState([])
@@ -46,22 +47,34 @@ function App() {
         }
         setQuizRandomizedAnswers(quizAnswerChoices)
       }
-    )
+    ).catch((error) => { 
+          setQuizStart(true)
+          setFetchError(true)
+      }
+  )
   },[currentRound])
 
   function startGame(){
+    if(fetchError){
+
+    }else{
     quizStart && setQuizStart(false)
+    }
   }
 
-  function answerChecker(value){
-    setIsAnswersChecked(true)
-    setPlayerScore((prevPlayerScore) => {
-      if(prevPlayerScore >= value){
-        return (prevPlayerScore - value)
-      }else{
-        return(prevPlayerScore)
-      }
-    })
+  function answerChecker(value, unSelectedAnswers, totalAnswerLength){
+    if(unSelectedAnswers === totalAnswerLength){
+
+    }else if(unSelectedAnswers === (totalAnswerLength - 5)){
+      setIsAnswersChecked(true)
+      setPlayerScore((prevPlayerScore) => {
+        if(prevPlayerScore >= value){
+          return (prevPlayerScore - value)
+        }else{
+          return(prevPlayerScore)
+        }
+      })
+    }
   }
 
   function selectAnswerChoice0(e){
@@ -98,7 +111,10 @@ function App() {
   return (
     <>
      {quizStart ? 
-      (<StartView handleClick={startGame}/>) : 
+      (<StartView 
+          handleClick={startGame}
+          fetchError={fetchError}
+        />) : 
       (<QuestionsView 
             isAnswersChecked={isAnswersChecked} 
             handleCheckClick={answerChecker}
