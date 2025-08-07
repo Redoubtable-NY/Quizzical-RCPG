@@ -93,6 +93,8 @@ main > .CTA-button{
 .question-group > fieldset{
     border: none;
     border-bottom: 1px solid #DBDEF0;
+    margin: none;
+    padding: none;
 }
 
 .question-group > fieldset > legend {
