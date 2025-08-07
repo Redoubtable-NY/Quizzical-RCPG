@@ -93,8 +93,6 @@ main > .CTA-button{
 .question-group fieldset{
     border: none;
     border-bottom: 1px solid #DBDEF0;
-    margin: none;
-    padding: none;
 }
 
 .question-group fieldset legend {
@@ -258,6 +256,12 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         padding: .75em .75em;
     }
 
+    .question-group fieldset{
+        border: none;
+        border-bottom: 1px solid #DBDEF0;
+        padding-bottom: .5em;
+        padding-top: .25em;
+    }
 
     /* Typography */
 
