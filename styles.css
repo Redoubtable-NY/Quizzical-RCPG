@@ -204,10 +204,14 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     text-align: center;
 }
 
+#trivia-error{
+    text-align: center;
+}
+
 
 /* mobile phone styles */
 
-@Media (width >= 600px), (height >= 812px){
+@media (width >= 600px), (height >= 812px){
     
     body{
         height: 100%; 
