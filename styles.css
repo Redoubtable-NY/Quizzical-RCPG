@@ -3,11 +3,10 @@
 }
 
 html { 
-    block-size: 100%; 
+    height: 100%; 
 }
 
 body { 
-    block-size: 100%; 
     background-color: #F5F7FB;
     display: flex;
     flex-direction: column;
@@ -15,7 +14,6 @@ body {
 }
 
 #root{
-    min-block-size: 100%; 
     display: grid;
     position: relative;
 }
@@ -67,9 +65,11 @@ header{
     height: 100%;
     justify-self: center;
     justify-content: center;
-    padding: 5% 20%; 
-    max-width: 1800px;
-    min-width: 1000px;
+    /* padding: 5% 20%;  */
+    padding: 30% 5% 30% 5%; 
+    width: 100vw;
+    max-width: 1000px;
+    min-width:325px;
 }
 
 main > .CTA-button{
@@ -80,6 +80,7 @@ main > .CTA-button{
     display: flex;
     flex-direction: column;
     padding-bottom: 1.25em;
+    width: 100%;
 }
 
 .question-group{
@@ -88,15 +89,18 @@ main > .CTA-button{
     flex-grow: 1;
     justify-content: center;
     gap: 1.25em;
+    width: auto;
 }
 
 .question-group fieldset{
+    display: flex;
+    width: auto;
     border: none;
     border-bottom: 1px solid #DBDEF0;
 }
 
 .question-group fieldset legend {
-   padding-bottom: 1.5em;
+   padding:0 0 1em 0;
 }
 
 hr{
@@ -105,7 +109,8 @@ hr{
 
 .answer-choices{
     display: flex;
-    gap: 1em;
+    flex-wrap: wrap;
+    gap: .5em;
     margin-bottom: 1.5em;
 }
 
@@ -155,7 +160,6 @@ hr{
 
 .new-game-container p{
     font-weight: 700;
-    font-size: 1.25rem;
 }
 
 /* Typoraphy */
@@ -168,8 +172,12 @@ hr{
 
 .question-group fieldset legend {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #293264;
+}
+
+.new-game-container p{
+    font-size: 1rem;
 }
 
 body{
@@ -192,11 +200,31 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@Media (width <= 1000px){
+@Media (width >= 600px){
     
-    /* Layout */
+    #root{
+        height: 100%;
+    }
 
-    #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
+    #Questions-and-controls-container{
+        padding: 15% 15%; 
+    }
+
+    .question-group fieldset legend {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #293264;
+    }
+
+    .question-group fieldset legend {
+        padding:0 0 1.25em 0;
+     }
+    
+    .new-game-container p{
+        font-size: 1.25rem;
+    }
+
+    /* #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
         display: none;
     }
 
@@ -262,11 +290,11 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         border-bottom: 1px solid #DBDEF0;
         padding-bottom: .5em;
         padding-top: .25em;
-    }
+    } */
 
     /* Typography */
 
-    .question-group fieldset  legend {
+    /* .question-group fieldset  legend {
         font-weight: 700;
         font-size: .9rem;
         color: #293264;
@@ -286,6 +314,6 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     .new-game-container p{
         font-weight: 700;
         font-size: .9rem;
-    }
+    } */
 
 }
