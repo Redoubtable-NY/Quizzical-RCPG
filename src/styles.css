@@ -71,7 +71,6 @@ header{
     height: 100%;
     justify-self: center;
     justify-content: center;
-    /* padding: 5% 20%;  */
     padding: 30% 5% 30% 5%; 
     width: 100vw;
     max-width: 1000px;
@@ -103,10 +102,12 @@ main > .CTA-button{
     width: auto;
     border: none;
     border-bottom: 1px solid #DBDEF0;
+    padding: 0;
 }
 
 .question-group fieldset legend {
-   padding:0 0 1em 0;
+   /* padding:0 0 1em 0; */
+   margin-bottom: 1em;
 }
 
 hr{
@@ -233,7 +234,8 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     }
 
     .question-group fieldset legend {
-        padding:0 0 1.25em 0;
+        /* padding:0 0 1.25em 0; */
+        margin-bottom: 1.25em;
      }
     
     .new-game-container p{
@@ -242,7 +244,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 }
 
-@media (width <= 440px) and (orientation: landscape){
+@media (orientation: landscape){
     #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
         display: none;
     }
