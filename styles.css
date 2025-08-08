@@ -207,7 +207,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@Media (width >= 600px), (height >= 812px), (orientation: landscape){
+@Media (width >= 600px), (height >= 812px){
     
     body{
         height: 100%; 
@@ -236,4 +236,14 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         font-size: 1.25rem;
     }
 
+}
+
+@media (orientation: landscape){
+    #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
+        display: none;
+    }
+
+    #Questions-and-controls-container{
+        padding: 5% 5%; 
+    }
 }
