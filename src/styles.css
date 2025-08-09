@@ -32,6 +32,8 @@ header{
     margin: 0 auto;
 }
 
+
+
 #site-header, #site-header-description{
     margin: 0;    
 }
@@ -53,16 +55,8 @@ header{
     color: #F5F7FB;
 }
 
-#start-yellow-blob, #Quest-yellow-blob{
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-#start-blue-blob, #Quest-blue-blob{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+#start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
+    display: none;
 }
 
 #Questions-and-controls-container{
@@ -201,11 +195,13 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 }
 
 #site-header-description{
+    visibility: visible;
     font-size: 1rem;
     text-align: center;
 }
 
 #trivia-error{
+    visibility: visible;
     text-align: center;
 }
 
@@ -242,8 +238,22 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         font-size: 1.25rem;
     }
 
-}
+    #start-yellow-blob, #Quest-yellow-blob{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+    #start-blue-blob, #Quest-blue-blob{
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 
+}
+/* 
 @media (orientation: landscape){
     #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
         display: none;
@@ -252,4 +262,4 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     #Questions-and-controls-container{
         padding: 5% 5%; 
     }
-}
+} */
