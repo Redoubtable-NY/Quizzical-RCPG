@@ -67,7 +67,6 @@ header{
     justify-content: center;
     padding: 30% 5% 30% 5%; 
     width: 100vw;
-    max-width: 1000px;
     min-width:325px;
 }
 
@@ -208,7 +207,7 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@media (width >= 600px), (height >= 812px){
+@media (600px >= width <= 1000px), (height >= 860px){
     
     /* body{
         height: 100%; 
@@ -252,6 +251,21 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         left: 0;
     }
 
+}
+
+@media (width >= 1000px){
+    #root{
+        height: 100vh;
+    }
+    
+    #Questions-and-controls-container{
+        padding: 5%; 
+        max-width:1200px;
+    }
+
+    header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
+        margin-top: 1.25em;
+    }
 }
 /* 
 @media (orientation: landscape){
