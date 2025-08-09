@@ -208,16 +208,16 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 
 /* mobile phone styles */
 
-@media (width >= 600px), (height >= 812px){
+@media (width >= 600px), (height >= 844px){
     
-    body{
+    /* body{
         height: 100%; 
     }
 
     #root{
         height: 100%;
 
-    }
+    } */
 
     #Questions-and-controls-container{
         padding: 15% 15%; 
