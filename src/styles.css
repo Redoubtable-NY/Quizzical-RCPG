@@ -99,7 +99,6 @@ main > .CTA-button{
 }
 
 .question-group fieldset legend {
-   /* padding:0 0 1em 0; */
    margin-bottom: 1em;
 }
 
@@ -208,15 +207,6 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
 /* mobile phone styles */
 
 @media (600px >= width <= 1000px), (height >= 860px){
-    
-    /* body{
-        height: 100%; 
-    }
-
-    #root{
-        height: 100%;
-
-    } */
 
     #Questions-and-controls-container{
         padding: 15% 15%; 
@@ -229,7 +219,6 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
     }
 
     .question-group fieldset legend {
-        /* padding:0 0 1.25em 0; */
         margin-bottom: 1.25em;
      }
     
@@ -267,13 +256,3 @@ header > .CTA-button, main > .CTA-button, .new-game-container > .CTA-button{
         margin-top: 1.25em;
     }
 }
-/* 
-@media (orientation: landscape){
-    #start-yellow-blob, #Quest-yellow-blob, #start-blue-blob, #Quest-blue-blob{
-        display: none;
-    }
-
-    #Questions-and-controls-container{
-        padding: 5% 5%; 
-    }
-} */
